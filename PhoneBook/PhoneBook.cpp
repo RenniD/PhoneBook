@@ -54,7 +54,13 @@ class Contact {
 };
 
 class PhoneBooK {
-	std::string vector Contacts {}
+	std::vector <Contact> Contacts{};
+
+	void AddNumber(Contact) {
+		Contacts.push_back(Contact);
+	}
+
+
 };
 
 int main() {
