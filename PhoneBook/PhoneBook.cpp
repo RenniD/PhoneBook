@@ -78,17 +78,19 @@ public:
 class PhoneBooK {
 	std::vector <Contact> contacts{};
 
+public:
+
 	void AddNumber(Contact number) {
 		contacts.push_back(number);
 		std::cout << number.getPN() << " was succesfully added to phonebook." << std::endl ;
 	}
 
-	void FindNumber(std::string value) {
+	Contact FindNumber(std::string value) {
 		for (auto& contact : contacts) {
 			if (contact.getFN() == value || contact.getPN() == value) {
 				std::cout << "Contact was found." << std::endl;
 				contact.PrintInfo();
-				return;
+				return contact;
 			}
 		}
 		std::cout << "This contact was not found" << std::endl;
@@ -123,11 +125,11 @@ int main() {
 	do {
 		if (choice == 1) {
 			std::string firstName, lastName, phonenumber, email;
-			
+
 			std::cout << "Enter first name :" << std::endl;
 
 			std::cin >> firstName;
-			
+
 			std::cout << "Enter last name :" << std::endl;
 
 			std::cin >> lastName;
@@ -142,7 +144,31 @@ int main() {
 
 			Contact(lastName, firstName, phonenumber, email);
 		}
+		
+		if (choice == 2){
+			std::string findCont;
 
+			std::cout << "Enter last Contact First name or phonenumber to add to phone-book :" << std::endl;
+
+			std::cin >> findCont;
+
+			book1.AddNumber(book1.FindNumber(findCont));
+
+		}
+
+		if (choice == 3) {
+			std::string findCont;
+
+			std::cout << "Enter last Contact First name or phonenumber to find in phone-book :" << std::endl;
+
+			std::cin >> findCont;
+
+			book1.FindNumber(findCont);
+		}
+
+		if (choice == 4) {
+			book1.ShowAll();
+		}
 
 	} while (choice != 0);
 }
