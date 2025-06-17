@@ -1,14 +1,3 @@
-// Нам треба створити проєкт "Телефонна книга". 
-/*
-- два класи - Contact та PhoneBook
-- Contact: поля класу (Прізвище, Ім`я, номер телефону, пошта), сетери з логікою вказування, сеттери, метод??
-- PhoneBook: вектор контактів, можливість додати контакти, можливість знайти за номером телефону/або за прізвищем, показати всі контакти
-- окремий глобальний метод: меню взаємодії
-- перевірка цього проєкту
-
-
-*/
-
 #include <iostream>
 #include <vector>
 
@@ -73,6 +62,9 @@ public:
 		setPN(PN);
 		setEmail(EM);
 	}
+	Contact(){
+
+	}
 };
 
 class PhoneBooK {
@@ -121,6 +113,7 @@ void menu () {
 int main() {
 	PhoneBooK book1;
 	int choice;
+	Contact newContact;
 
 	do {
 		if (choice == 1) {
@@ -142,17 +135,12 @@ int main() {
 
 			std::cin >> email;
 
-			Contact(lastName, firstName, phonenumber, email);
+			newContact = Contact(lastName, firstName, phonenumber, email);
 		}
 		
 		if (choice == 2){
-			std::string findCont;
-
-			std::cout << "Enter last Contact First name or phonenumber to add to phone-book :" << std::endl;
-
-			std::cin >> findCont;
-
-			book1.AddNumber(book1.FindNumber(findCont));
+			
+			book1.AddNumber(newContact);
 
 		}
 
